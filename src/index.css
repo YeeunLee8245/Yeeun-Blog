@@ -16,13 +16,20 @@ code {
 header {
   display: flex;
   justify-content: space-between;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
   border-bottom: 1px solid #f2f2f2;
   padding: 10px 40px;
   min-height: 40px;
   /* 세로 가운데 정렬 */
   align-items: center;
 }
+
+header .header__logo {
+  color: black;
+  font-weight: 600;
+  font-size: 18px;
+}
+
 
 header a {
   margin: 0px 10px;
@@ -78,7 +85,7 @@ footer a:hover {
   font-weight: 600;
 }
 
-/* post list */
+/* Post list, Post detail */
 .post__list {
   /* view port 기준으로 90% */
   min-height: 90vh;
@@ -144,4 +151,40 @@ footer a:hover {
       color:black
     }
   }
+}
+
+
+/* post detail  */
+/* .post__detail 안의 .post__title */
+.post__detail .post__title {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.post__detail .post__utils-box {
+  padding: 10px 0px;
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  flex-direction: row;
+}
+
+.post__detail .post__profile-box {
+  padding: 10px 0px;
+}
+
+.post__detail .post__text {
+  padding: 20px 0px;
+}
+
+.post__text--pre-wrap {
+  white-space: pre-wrap;
+}
+
+.post__category {
+  color: gray;
+  border: 1px solid lightgray;
+  background-color: #f2f2f2;
+  padding: 0px 4px;
+  border-radius: 10px;
+  font-size: 12px;
 }

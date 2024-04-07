@@ -1,16 +1,11 @@
 import { Link } from 'react-router-dom';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 export default function Home() {
   return (
     <div>
-      <header>
-        <div>
-          {/* Link to: 해당 url로 이동(자식: 클릭대상 component) */}
-          <Link to="/posts/new">글쓰기</Link>
-          <Link to="/posts">게시글</Link>
-          <Link to="/profile">프로필</Link>
-        </div>
-      </header>
+      <Header />
       <div className="post__navigation">
         <div className="post__navigation--active">전체</div>
         <div>나의 글</div>
@@ -19,9 +14,9 @@ export default function Home() {
         {[...Array(10)].map((e, index) => (
           <div key={index} className="post__box">
             <Link to={`/posts/${index}`}>
-              <div key={index} className="post__profile-box">
+              <div className="post__profile-box">
                 <div className="post__profile" />
-                <div className="post__author-name">패스트캠퍼스</div>
+                <div className="post__author-name">이예은</div>
                 <div className="post__date">2023.07.08 토요일</div>
               </div>
               <div className="post__title">게시글 {index}</div>
@@ -45,11 +40,7 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <footer>
-        <Link to="/posts/new">글쓰기</Link>
-        <Link to="/posts">게시글</Link>
-        <Link to="/profile">프로필</Link>
-      </footer>
+      <Footer />
     </div>
   );
 }
