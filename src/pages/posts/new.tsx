@@ -1,13 +1,13 @@
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
+import Footer from '@components/Footer';
+import Header from '@components/Header';
 
 export default function PostNew() {
-  return (
-    <>
-      <Header />
-      <div>Post Form</div>
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<Header />
+			<div>Post Form</div>
+			<Footer />
+		</>
+	);
 }
 // TODO: 2-6부터
