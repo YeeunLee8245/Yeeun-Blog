@@ -1,10 +1,15 @@
 
 export default function CarouselItem(
-	{ id: propId, order: propOrder, imgSrc: propImgSrc }: NCarousel.IItemProps
+	{ order: propOrder, imgSrc: propImgSrc, children: propChildren }: NCarousel.IItemProps
 ) {
 	return (
-		<>
-
-		</>
+		<li className="carousel__slide-container">
+			<div className="carousel__slide-img">
+				<img width={100} alt={`scenery ${propOrder}`} src={propImgSrc} />
+			</div>
+			<div className="carousel__controls">
+				{propChildren}
+			</div>
+		</li>
 	)
 }
