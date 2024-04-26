@@ -1,13 +1,21 @@
 {
-    "css.enabledLanguages": [
-        "html",
-        "javascriptreact",
-        "typescriptreact",
-        "typescript",
-        "javascript",
-        "njk",
-        "nunjucks",
-        "html-nunjucks",
-        "php"
-    ]
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "css.enabledLanguages": [
+    "html",
+    "javascriptreact",
+    "typescriptreact",
+    "typescript",
+    "javascript",
+    "njk",
+    "nunjucks",
+    "html-nunjucks",
+    "php"
+  ],
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
