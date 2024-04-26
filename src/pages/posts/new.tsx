@@ -9,4 +9,3 @@ export default function PostNew() {
     </>
   );
 }
-// TODO: 2-6부터
