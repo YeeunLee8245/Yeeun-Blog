@@ -8,61 +8,75 @@ const MAX_NUM = 3;
 const images = [parrot1, parrot2, parrot3];
 
 const findOrder = (direction: 'right' | 'left', currentOrder: number) => {
-	const arr = [...Array(MAX_NUM)];
-	if (direction === 'right') {
-		if (currentOrder === 1) return MAX_NUM;
-		else return currentOrder - 1;
-	} else {
-		if (currentOrder === MAX_NUM) return 1;
-		else return currentOrder + 1;
-	}
+  if (direction === 'right') {
+    if (currentOrder === 1) return MAX_NUM;
+    else return currentOrder - 1;
+  } else {
+    if (currentOrder === MAX_NUM) return 1;
+    else return currentOrder + 1;
+  }
 };
 
 export default function Carousel() {
-	const [activeImage, setActiveImage] = useState(1);
+  const [activeImage, setActiveImage] = useState(1);
 
-	const itemsProps: NCarousel.IItemProps[] = [...Array(MAX_NUM)].map(
-		(i, idx) => {
-			return {
-				order: idx + 1,
-				imgSrc: images[idx],
-			};
-		},
-	);
+  const itemsProps: NCarousel.IItemProps[] = [...Array(MAX_NUM)].map(
+    (_, idx) => {
+      return {
+        order: idx + 1,
+        imgSrc: images[idx],
+      };
+    }
+  );
 
-	return (
-		<div>
-			<div className="carousel">
-				<ul className="carousel__slides">
-					{itemsProps.map((item, idx) => {
-						return (
-							<>
-								<input
-									type="radio"
-									name="raio-buttons"
-									id={`img-${idx}`}
-									checked={activeImage === idx + 1}
-									readOnly
-								/>
-								<CarouselItem {...item}>
-									<label
-										onClick={() => setActiveImage(3)}
-										className="carousel__slide-prev"
-									>
-										<span>&lsaquo;</span>
-									</label>
-									<label
-										onClick={() => setActiveImage(2)}
-										className="carousel__slide-next"
-									>
-										<span>&rsaquo;</span>
-									</label>
-								</CarouselItem>
-							</>
-						);
-					})}
-				</ul>
-			</div>
-		</div>
-	);
+  return (
+    <div>
+      <div className="carousel">
+        <ul className="carousel__slides">
+          {itemsProps.map((item) => {
+            return (
+              <div key={item.order}>
+                <input
+                  id={`img-${item.order}`}
+                  checked={activeImage === item.order}
+                  type="radio"
+                  name="raio-buttons"
+                  readOnly
+                />
+                <CarouselItem {...item}>
+                  <label
+                    onClick={() =>
+                      setActiveImage(findOrder('right', item.order))
+                    }
+                    className="carousel__slide-prev"
+                  >
+                    <span>&lsaquo;</span>
+                  </label>
+                  <label
+                    onClick={() =>
+                      setActiveImage(findOrder('left', item.order))
+                    }
+                    className="carousel__slide-next"
+                  >
+                    <span>&rsaquo;</span>
+                  </label>
+                </CarouselItem>
+              </div>
+            );
+          })}
+          <div className="carousel__dots">
+            {itemsProps.map((item) => (
+              <label
+                key={item.order}
+                data-is-checked={activeImage === item.order}
+                onClick={() => setActiveImage(item.order)}
+                className="carousel__dot"
+                id={`img-dot-${item.order}`}
+              />
+            ))}
+          </div>
+        </ul>
+      </div>
+    </div>
+  );
 }

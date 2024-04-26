@@ -1,12 +1,8 @@
 {
-	"extends": "./tsconfig.paths.json",
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -20,14 +16,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-		"baseUrl": "src",
+    "baseUrl": "src",
     "paths": {
-			"@images/*": ["assets/images/*"],
-			"@pages/*": ["pages/*"],
-			"@components/*": ["components/*"]
+      "@images/*": ["assets/images/*"],
+      "@pages/*": ["pages/*"],
+      "@components/*": ["components/*"]
     }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
