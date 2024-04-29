@@ -6,12 +6,14 @@ import PostEdit from '@pages/posts/edit';
 import PostNew from '@pages/posts/new';
 import ProfilePage from '@pages/profile';
 import SignUpPage from '@pages/signup';
-import { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-export default function Router() {
+interface IProps {
+  isAuthenticated: boolean;
+}
+
+export default function Router({ isAuthenticated }: IProps) {
   // firebase Auth 인증 => true
-  const [isAuthenticated, setIsAuthen] = useState<boolean>(false);
   return (
     <>
       <Routes>
@@ -23,7 +25,6 @@ export default function Router() {
             <Route path="/posts/new" element={<PostNew />} />
             <Route path="/posts/edit/:id" element={<PostEdit />} />
             <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUpPage />} />
             {/* 기본 Path 설정 */}
             <Route path="*" element={<Navigate replace to="/" />} />

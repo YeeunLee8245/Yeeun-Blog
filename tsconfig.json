@@ -20,7 +20,8 @@
     "paths": {
       "@images/*": ["assets/images/*"],
       "@pages/*": ["pages/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@context/*": ["context/*"]
     }
   },
   "include": ["src"]
