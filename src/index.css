@@ -156,6 +156,14 @@ post__author-name {
   }
 }
 
+.post__no-post {
+  padding: 24px;
+  text-align: center;
+  color: gray;
+  border: 1px solid #f2f2f2;
+  border-radius: 20px;
+}
+
 /* post detail  */
 /* .post__detail 안의 .post__title */
 .post__detail .post__title {
